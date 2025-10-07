@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cookieParser());
 app.use(cors(
     {
-        origin: 'http://localhost:5173',
+        origin: process.env.CLIENT_URL,
         credentials: true,
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         allowedHeaders: ['Content-Type', 'Authorization']
@@ -60,9 +60,10 @@ app.get('/api/admin/elections', getAllElections);
 // })
 
 connectDB().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
-    });
+    console.log("MongoDB has connected successfully");
+    // app.listen(PORT, () => {
+    //     console.log(`Server is running on port ${PORT}`);
+    // });
 })
 .catch(err => {
     console.error("Failed to connect to the database:", err);
