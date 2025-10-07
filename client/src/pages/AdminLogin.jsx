@@ -14,6 +14,7 @@ export default function AdminLogin() {
     e.preventDefault()
     try {
       const res = await api.post('/admin/login', { username, password })
+      console.log(res);
       toast.success('Login successful')
       alert('Login successfully')
       setUser(res.data.user)
