@@ -23,6 +23,9 @@ app.use(cors(
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+app.get("/", (req, res) => {
+    res.send("Root cause");
+})
 app.get("/health-check", (req, res) => {
   res.send("Hello from backend!");
 });
