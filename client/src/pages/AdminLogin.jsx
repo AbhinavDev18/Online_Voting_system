@@ -15,10 +15,11 @@ export default function AdminLogin() {
     try {
       const res = await api.post('/admin/login', { username, password })
       toast.success('Login successful')
+      alert('Login successfully')
       setUser(res.data.user)
       nav('/admin')
     } catch (err) {
-      toast.error('Login failed: ' + (err.response?.data?.message || err.message))
+      alert('Login failed: ' + (err.response?.data?.message || err.message))
     }
   }
 
