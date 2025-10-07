@@ -1,0 +1,13 @@
+{
+    "appTitle": "VotePanel",
+    "welcome": "Welcome to VotePanel",
+    "intro": "A demo front-end for an online voting system. This UI includes biometric stubs and admin functionality.",
+    "voterLogin": "Voter Login",
+    "adminLogin": "Admin Login",
+    "featuresTitle": "Key Features",
+    "feature_secure": "Secure voting flow (demo)",
+    "feature_biometric_demo": "Frontend biometric checks (no server-side storage)",
+    "feature_multilang": "English & Tamil support",
+    "voterId": "Voter ID",
+    "sendOtp": "Send OTP"
+}
