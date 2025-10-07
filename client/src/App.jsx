@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import { Toaster } from 'react-hot-toast'
 
 import { AuthProvider } from './hooks/useAuth'
 import NavBar from './components/NavBar'
@@ -60,6 +61,13 @@ export default function App() {
             </Suspense>
           </AnimatePresence>
         </main>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: { background: '#333', color: '#fff' },
+          }}
+        />
       </div>
     </AuthProvider>
   )
