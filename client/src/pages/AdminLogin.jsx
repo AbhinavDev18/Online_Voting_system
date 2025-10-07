@@ -2,7 +2,7 @@ import { useState } from 'react'
 import api from '../api/api'
 import { useAuth } from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
-
+import toast from 'react-hot-toast';
 
 export default function AdminLogin() {
   const [username, setUsername] = useState('')
@@ -14,11 +14,11 @@ export default function AdminLogin() {
     e.preventDefault()
     try {
       const res = await api.post('/admin/login', { username, password })
-      
+      toast.success('Login successful')
       setUser(res.data.user)
       nav('/admin')
     } catch (err) {
-      
+      toast.error('Login failed: ' + (err.response?.data?.message || err.message))
     }
   }
 
