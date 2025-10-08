@@ -29,6 +29,7 @@ const adminLogin = async (req, res) => {
         const options = {
             httpOnly: true,
             secure: true,
+            sameSite: "none",
         };
         return res.status(200).cookie('admin', token, options).json({user: tokenData, message: "Admin logged in successfully"});
     } catch (error) {
@@ -90,7 +91,7 @@ const verifyOtp = async (req, res) => {
     const options = {
       httpOnly: true,
       secure: true,
-      sameSite: "strict",
+      sameSite: "none",
     };
 
     voter.verifyOTP = undefined;
