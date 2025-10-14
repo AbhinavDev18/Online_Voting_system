@@ -71,10 +71,10 @@ export default function AdminDashboard() {
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className={`px-5 py-2 rounded-2xl font-semibold transition-all duration-300 ${
+              className={`px-5 py-2 rounded-2xl border border-gray-300 dark:border-gray-600 font-semibold transition-all duration-300 ${
                 tab === t.id
-                  ? 'bg-primary text-white shadow-lg hover:shadow-xl'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary hover:text-white shadow-sm'
+                  ? 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 shadow-lg hover:shadow-xl'
+                  : 'bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-primary shadow-sm'
               }`}
             >
               {t.label}
