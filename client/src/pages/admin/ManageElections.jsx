@@ -78,12 +78,12 @@ export default function ManageElections({ elections, setElections }) {
             onChange={handleChange}
             placeholder={key.replace(/([A-Z])/g, ' $1')}
             required
-            className="p-3 border rounded-lg focus:ring-2 focus:ring-primary transition-all duration-200"
+            className="p-3 border rounded-lg focus:ring-2 focus:ring-primary transition-all duration-200 placeholder-gray-400 placeholder:italic placeholder:text-sm"
           />
         ))}
         <button
           type="submit"
-          className="col-span-2 bg-primary text-white py-3 rounded-2xl hover:bg-indigo-600 transition-colors shadow-md"
+          className="col-span-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100 hover:text-indigo py-3 rounded-2xl transition-colors shadow-md"
         >
           Create Election
         </button>
