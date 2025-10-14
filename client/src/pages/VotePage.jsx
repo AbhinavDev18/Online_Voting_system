@@ -57,7 +57,7 @@ export default function VotePage() {
                 onClick={() => setSelected(c.candidateId)}
                 className={`px-4 py-2 rounded-xl w-full font-semibold border transition-colors ${
                   isSelected
-                    ? 'bg-primary text-white border-primary hover:bg-primary-dark'
+                    ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-primary hover:bg-primary-dark'
                     : 'bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-600'
                 }`}
               >
@@ -71,7 +71,7 @@ export default function VotePage() {
       <div className="mt-6 flex justify-center">
         <button
           onClick={cast}
-          className="px-6 py-3 rounded-2xl bg-primary text-white font-semibold shadow-lg hover:bg-primary-dark transition-colors"
+          className="px-6 py-3 rounded-xl border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
         >
           Cast Vote
         </button>
