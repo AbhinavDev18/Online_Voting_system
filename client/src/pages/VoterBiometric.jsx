@@ -27,7 +27,7 @@ export default function VoterBiometric() {
             <WebAuthnStub onPass={() => setPassedAuthn(true)} />
             <button
               onClick={done}
-              className="w-full sm:w-auto py-3 px-6 rounded-xl bg-primary text-white font-semibold shadow hover:bg-primary-dark transition-colors"
+              className="w-full py-3 sm:py-4 rounded-xl bg-primary text-gray-900 dark:text-gray-100 font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
               Proceed to Vote
             </button>
