@@ -26,7 +26,7 @@ export default function VotePage() {
       setReceipt(res.data.receiptId)
     } catch (err) {
       console.log(err);
-      alert('Failed to cast vote')
+      window.location.href = '/';
     }
   }
 
