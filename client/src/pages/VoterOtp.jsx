@@ -64,7 +64,7 @@ export default function VoterOtp() {
         </div>
         <button
           type="submit"
-          className="w-full py-3 rounded-xl bg-primary text-white font-semibold text-lg shadow hover:bg-primary-dark transition-colors"
+          className="w-full py-3 sm:py-4 rounded-xl bg-primary text-gray-900 dark:text-gray-100 font-semibold shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
         >
           Verify
         </button>
