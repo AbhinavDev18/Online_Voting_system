@@ -369,17 +369,22 @@ const votesCast = async (req, res) => {
     const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
     const voterId = decoded.voterId;
 
-    const voter = await Voter.findOne({ voterId });
+    const voter = await Voter.findOne({ voterId }).populate("votedElections");
     if (!voter) return res.status(404).json({ message: "Voter not found" });
-
-    if(voter.votedElections.includes(req.params.electionId)) {
-      return res.status(400).json({ message: "You have already voted in this election" });
-    }
 
     const electionId = req.params.electionId;
     const election = await Election.findOne({ electionId });
 
-    // ✅ Check expiry
+    if (!election) return res.status(404).json({ message: "Election not found" });
+
+    const hasVoted = voter.votedElections.some(
+      (v) => v._id.toString() === election._id.toString()
+    );
+
+    if (hasVoted) {
+      return res.status(400).json({ message: "You have already voted in this election" });
+    }
+
     if (new Date() > election.endDateTime) {
       election.phase = "completed";
       election.isActive = false;
@@ -387,12 +392,8 @@ const votesCast = async (req, res) => {
       return res.status(400).json({ message: "Election has ended" });
     }
 
-    if (!election || !election.isActive || election.phase !== "voting") {
+    if (!election.isActive || election.phase !== "voting") {
       return res.status(400).json({ message: "No active election found" });
-    }
-
-    if (voter.votedElections.includes(electionId)) {
-      return res.status(400).json({ message: "You have already voted in this election" });
     }
 
     const { candidateId } = req.body;
