@@ -372,9 +372,9 @@ const votesCast = async (req, res) => {
     const voter = await Voter.findOne({ voterId });
     if (!voter) return res.status(404).json({ message: "Voter not found" });
 
-    // if(voter.votedElections.includes(req.params.electionId)) {
-    //   return res.status(400).json({ message: "You have already voted in this election" });
-    // }
+    if(voter.votedElections.includes(req.params.electionId)) {
+      return res.status(400).json({ message: "You have already voted in this election" });
+    }
 
     const electionId = req.params.electionId;
     const election = await Election.findOne({ electionId });
